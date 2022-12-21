@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordgenerator.Controller">
+   <children>
+      <CheckBox layoutX="70.0" layoutY="149.0" mnemonicParsing="false" onAction="#onUpperCaseButtonClick" text="Upper Case Letters" />
+      <CheckBox layoutX="70.0" layoutY="182.0" mnemonicParsing="false" onAction="#onNumberButtonClick" text="Numbers" />
+      <CheckBox layoutX="70.0" layoutY="219.0" mnemonicParsing="false" onAction="#onSpecialCaseButtonClick" text="Special Characters" />
+      <TextField layoutX="70.0" layoutY="252.0" onAction="#onInput" promptText="Length of Password" />
+   </children>
+</AnchorPane>
