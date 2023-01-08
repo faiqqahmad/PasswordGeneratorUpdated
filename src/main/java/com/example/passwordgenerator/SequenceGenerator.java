@@ -5,21 +5,10 @@ import java.util.List;
 import java.util.Random;
 
 public class SequenceGenerator {
-    private static int length;
-    private static boolean upCase;
-    private static boolean specChar;
-    private static boolean nums;
-    private static List<Integer> numSequence;
-    private static String finalSequence;
-
-    public SequenceGenerator(int length, boolean upCase, boolean specChar, boolean nums) {
-        this.length = length;
-        this.upCase = upCase;
-        this.specChar = specChar;
-        this.nums = nums;
-        numSequence = new ArrayList<>();
-        finalSequence = "";
-    }
+    private static int length = 0;
+    private static boolean upCase = false;
+    private static boolean specChar = false;
+    private static boolean nums = false;
 
     public static String generateSequence() {
 
@@ -29,6 +18,8 @@ public class SequenceGenerator {
         //Following code creates a random sequence with the chosen options
         List<Integer> selected = new ArrayList<>();
         Random rand = new Random();
+        String finalSequence = "";
+        List<Integer> numSequence = new ArrayList<>();
         selected.add(0);
         if (upCase) {
             selected.add(1);
@@ -45,22 +36,22 @@ public class SequenceGenerator {
         }
 
         for (int i = 0; i < length; i++) { // translates the number sequence into the randomized password
-            String added = "";
+            
             switch (numSequence.get(i)) {
                 case 0:
-                    added = added + PossibleChars.randomLowercase();
+                    finalSequence = finalSequence + PossibleChars.randomLowercase();
                     break;
                 case 1:
-                    added = added + PossibleChars.randomUppercase();
+                    finalSequence = finalSequence + PossibleChars.randomUppercase();
                     break;
                 case 2:
-                    added = added + PossibleChars.randomNumber();
+                    finalSequence = finalSequence + PossibleChars.randomNumber();
                     break;
                 case 3:
-                    added = added + PossibleChars.randomSpecial();
+                    finalSequence = finalSequence + PossibleChars.randomSpecial();
                     break;
             }
-            finalSequence = finalSequence + added;
+            
         }
 
         return finalSequence;
